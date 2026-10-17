@@ -6,9 +6,21 @@ const cors = require("cors");
 
 
 const app = express();
+const allowedOrigins = [
+  "https://vehicle-analytics-dashboard.onrender.com",
+  "http://localhost:5173",
+];
 
-app.use(cors());
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 app.use(express.json());
+
 
 const { Pool } = require("pg");
 
