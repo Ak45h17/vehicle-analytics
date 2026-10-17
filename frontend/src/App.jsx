@@ -1,8 +1,11 @@
-
 import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 
-const API_URL = "http://localhost:5000/api/events";
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV
+    ? "http://localhost:5000"
+    : "https://vehicle-analytics-hb1s.onrender.com");
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -14,7 +17,8 @@ function App() {
 
     async function fetchEvents() {
       try {
-        const response = await fetch(API_URL);
+        // ✅ Corrected endpoint
+        const response = await fetch(`${API_URL}/api/events`);
 
         if (!response.ok) {
           throw new Error("Unable to fetch vehicle events");
