@@ -1,0 +1,302 @@
+
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #e5e7eb;
+  background: #0b1120;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.dashboard {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 36px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  color: #60a5fa;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: clamp(28px, 4vw, 38px);
+}
+
+.subtitle,
+.metric-card p,
+.panel-heading p {
+  color: #94a3b8;
+}
+
+.subtitle {
+  margin-bottom: 0;
+}
+
+.connection {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border: 1px solid #263449;
+  border-radius: 30px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.status-dot,
+.color-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.status-dot.offline {
+  background: #ef4444;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.metric-card,
+.panel {
+  background: #111b2e;
+  border: 1px solid #263449;
+  border-radius: 16px;
+}
+
+.metric-card {
+  padding: 22px;
+}
+
+.metric-icon {
+  font-size: 24px;
+}
+
+.metric-card p {
+  margin: 16px 0 8px;
+  font-size: 14px;
+}
+
+.metric-card h2 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.metric-card .refresh-value {
+  font-size: 19px;
+  margin: 10px 0;
+}
+
+.metric-note {
+  display: block;
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+.panel {
+  padding: 24px;
+  min-width: 0;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.panel-heading p {
+  margin: 7px 0 0;
+  font-size: 13px;
+}
+
+.breakdown {
+  display: grid;
+  gap: 22px;
+}
+
+.breakdown-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.breakdown-label strong {
+  margin-left: auto;
+}
+
+.progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #263449;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.direction-list {
+  display: grid;
+  gap: 12px;
+}
+
+.direction-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #263449;
+  border-radius: 10px;
+}
+
+.direction-arrow {
+  color: #60a5fa;
+  font-size: 20px;
+}
+
+.direction-item strong {
+  margin-left: auto;
+}
+
+.events-panel {
+  padding-bottom: 8px;
+}
+
+.event-count {
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: #1e293b;
+  color: #cbd5e1;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 16px 14px;
+  border-bottom: 1px solid #263449;
+  font-size: 13px;
+}
+
+th {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+td {
+  color: #cbd5e1;
+}
+
+tbody tr:hover {
+  background: #172338;
+}
+
+.color-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.empty-state {
+  padding: 20px 0;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.error-banner {
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #7f1d1d;
+  border-radius: 10px;
+  background: #451a1a;
+  color: #fecaca;
+}
+
+footer {
+  padding: 28px 0 8px;
+  color: #64748b;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard {
+    padding: 20px 14px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+}
